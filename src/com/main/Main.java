@@ -15,6 +15,7 @@ class Main{
                 try {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 MainFrame mainFrame = new MainFrame(Constants.mainFrameTitle);
                 new CtlFrame(Constants.ctlFrameTitle);

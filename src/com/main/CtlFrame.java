@@ -1,4 +1,6 @@
 package com.main;
+import com.component.ConfirmBtn;
+import com.component.FrameTextView;
 import javax.swing.JSpinner;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
@@ -14,13 +16,13 @@ class CtlFrame extends JFrame{
         super(title);
         this.setLayout(new GridLayout(1,5));
         this.setLocation(100,200);
-        this.setSize(500,100);
+        this.setSize(850,100);
         this.setResizable(false);
         spinner.setMaximumSize(new Dimension(50,50));
         btn.setMaximumSize(new Dimension(100,50));
-        this.add(new JLabel("Delay record time:"));
+        this.add(new FrameTextView("Delay record time:"));
         this.add(spinner); // Set delay time.
-        this.add(btn);
+        this.add(new ConfirmBtn("Start"));
         this.add(new JLabel("TBD1"));
         this.add(new JLabel("TBD2"));
         this.add(new JLabel("TBD3"));
