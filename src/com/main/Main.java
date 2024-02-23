@@ -18,7 +18,9 @@ class Main{
                     ex.printStackTrace();
                 }
                 MainFrame mainFrame = new MainFrame(Constants.mainFrameTitle);
-                new CtlFrame(Constants.ctlFrameTitle);
+                new CtlFrame(Constants.ctlFrameTitle)
+                    .bindMainFrame(mainFrame)
+                    .setAllComponents();
             }
         });
     }

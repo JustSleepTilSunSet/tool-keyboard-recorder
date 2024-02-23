@@ -1,4 +1,7 @@
 package com.main;
+
+import com.main.MainFrame;
+
 import com.component.ConfirmBtn;
 import com.component.ConfirmBtnActions;
 import com.component.FrameTextView;
@@ -16,6 +19,7 @@ import java.awt.Dimension;
 class CtlFrame extends JFrame{
     JSpinner spinner = new JSpinner();
     JButton btn = new JButton("Start");
+    MainFrame mainFrame = null;
     int SPINNER_WIDTH = Constants.SPINNER_WIDTH;
     int SPINNER_HEIGHT = Constants.SPINNER_HEIGHT;
     int CONFIRM_BTN_WIDTH = Constants.CONFIRM_BTN_WIDTH;
@@ -23,6 +27,10 @@ class CtlFrame extends JFrame{
 
     public CtlFrame(String title){
         super(title);
+        this.setVisible(true);
+    }
+
+    public CtlFrame setAllComponents(){
         this.setLayout(new GridLayout(1,5));
         this.setLocation(100,200);
         this.setSize(850,100);
@@ -35,7 +43,14 @@ class CtlFrame extends JFrame{
         this.add(new JLabel("TBD2"));
         this.add(new JLabel("TBD3"));
         ConfirmBtn confirmBtn = new ConfirmBtn("Start");
-        this.add(confirmBtn.setAction(new ConfirmBtnActions().setBindSpinner(spinner)));
-        this.setVisible(true);
+        ConfirmBtnActions confirmBtnActions = new ConfirmBtnActions()
+            .setBindSpinner(spinner)
+            .getKeyboardRecords(this.mainFrame);
+        this.add(confirmBtn.setAction(confirmBtnActions));
+        return this;
+    }
+    public CtlFrame bindMainFrame(MainFrame mainFrame){
+        this.mainFrame = mainFrame;
+        return this;
     }
 }

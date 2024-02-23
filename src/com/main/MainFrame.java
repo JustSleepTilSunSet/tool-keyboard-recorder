@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
 
-class MainFrame extends JFrame{
+public class MainFrame extends JFrame{
     public JTextArea textArea = new JTextArea();
     ArrayList<String> actions = new ArrayList<String>();
     JPanel container = new JPanel();
@@ -63,4 +63,7 @@ class MainFrame extends JFrame{
         }
     }
 
+    public ArrayList<String> getKeyboardRecords(){
+        return actions;
+    }
 }
