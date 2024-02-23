@@ -1,13 +1,16 @@
 package com.main;
 import com.component.ConfirmBtn;
+import com.component.ConfirmBtnActions;
 import com.component.FrameTextView;
+
 import javax.swing.JSpinner;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 
 class CtlFrame extends JFrame{
     JSpinner spinner = new JSpinner();
@@ -22,7 +25,8 @@ class CtlFrame extends JFrame{
         btn.setMaximumSize(new Dimension(100,50));
         this.add(new FrameTextView("Delay record time:"));
         this.add(spinner); // Set delay time.
-        this.add(new ConfirmBtn("Start"));
+        ConfirmBtn confirmBtn = new ConfirmBtn("Start");
+        this.add(confirmBtn.setAction(new ConfirmBtnActions().setBindSpinner(spinner)));
         this.add(new JLabel("TBD1"));
         this.add(new JLabel("TBD2"));
         this.add(new JLabel("TBD3"));
