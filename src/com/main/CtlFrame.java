@@ -39,9 +39,6 @@ class CtlFrame extends JFrame{
         btn.setMaximumSize(new Dimension(CONFIRM_BTN_WIDTH, CONFIRM_BTN_WIDTH));
         this.add(new FrameTextView("Delay record time:"));
         this.add(spinner); // Set delay time.
-        this.add(new JLabel("TBD1"));
-        this.add(new JLabel("TBD2"));
-        this.add(new JLabel("TBD3"));
         ConfirmBtn confirmBtn = new ConfirmBtn("Start");
         ConfirmBtnActions confirmBtnActions = new ConfirmBtnActions()
             .setBindSpinner(spinner)
