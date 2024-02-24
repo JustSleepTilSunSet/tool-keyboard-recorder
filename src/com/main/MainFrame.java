@@ -2,13 +2,14 @@ package com.main;
 import java.lang.Thread;
 import java.lang.Runnable;
 import java.awt.Robot;
-import javax.swing.JFrame;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.KeyStroke;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import javax.swing.JTextArea;
 import javax.swing.JList;
 import javax.swing.JPanel;

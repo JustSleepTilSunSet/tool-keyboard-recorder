@@ -1,20 +1,19 @@
 package com.component;
 
 import com.main.MainFrame;
+import com.component.KeyboardRecorderBot;
 
 import java.util.ArrayList;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JSpinner;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class ConfirmBtnActions implements ActionListener {
     JSpinner spinner = null;
     ArrayList<String> actions = new ArrayList<String>();
     public ConfirmBtnActions setBindSpinner(JSpinner spinner){
-        System.out.println(spinner);
         this.spinner = spinner;
         return this;
     }
@@ -24,14 +23,22 @@ public class ConfirmBtnActions implements ActionListener {
         return this;
     }
 
-    public void getSpinnerValue(){
+    public int getSpinnerValue(){
         System.out.println(this.spinner.getValue().toString());
+        return Integer.parseInt(this.spinner.getValue().toString());
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        getSpinnerValue();
-        if(!actions.isEmpty())
-            System.out.println(actions.get(0));
+    public void actionPerformed(ActionEvent e){
+        try{
+            getSpinnerValue();
+            if(!actions.isEmpty()){
+                System.out.println(actions.get(0));
+            }
+            KeyboardRecorderBot bot = new KeyboardRecorderBot(actions, getSpinnerValue());
+            bot.runKeyBoardRecord();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 }
